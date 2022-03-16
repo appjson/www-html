@@ -1,3 +1,4 @@
 .vscode/
 *@deprecated
 .DS_Store
+/api/bing/**/
