@@ -32,17 +32,24 @@ function nowTime() {
         );
     return fmt;
   };
-  var nowdate = new Date().Format("yyyyMM");
+  // var nowdate = new Date().Format("yyyyMM");
   var nowtime = new Date().Format("yyyy-MM-dd  hh:mm:ss");
   document.getElementById("nowTime").innerHTML = "" + nowtime;
-  setTimeout(nowTime, 500);
+  setTimeout(nowTime, 800);
 }
 
 function toClipboard() {
-  var text = document.getElementById("nowTime").innerText;
+  var timeTag = document.getElementById("nowTime");
+  var text = timeTag.innerText;
   var input = document.getElementById("textarea");
+  input.setAttribute("readonly", "readonly");
   input.value = text;
   input.select();
-  document.execCommand("copy");
-  alert("复制成功");
+  // input.setSelectionRange(0, text.length + 1);
+  var status = document.execCommand("copy");
+  if (status) {
+    timeTag.innerHTML = "复制成功！";
+  } else {
+    timeTag.innerHTML = "复制失败！";
+  }
 }
