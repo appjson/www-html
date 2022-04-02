@@ -7,7 +7,7 @@
   <meta name="description" content="Steven的启动页">
   <link rel="Shortcut Icon" type="image/x-icon" href="./favicon.ico">
   <meta name="author" content="me@stevenos.com">
-  <META NAME="COPYRIGHT" CONTENT="StevenYan">
+  <meta NAME="COPYRIGHT" CONTENT="StevenYan">
   <meta http-equiv="Window-target" content="_top" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
@@ -364,26 +364,6 @@
     z-index: -10;
   }
 </style>
-<script type="text/javascript">
-  function killDevTool() {
-    let text = '<h1>本页面禁止使用开发者工具<br />DevTools are forbidden on this Page.</h1>';
-    let obj = new Image();
-    Object.defineProperty(obj, 'id', { get: function () { document.write(text) } });
-    console.log(obj);
-  }
-  function loadBG() {
-    document.getElementById('bg-img').src = "https://stevenapis.xyz/api/bing";
-    console.log("BG img set.");
-  }
-  window.onload = function () {
-    console.log("onLoad");
-    console.log('%c' + '地址: http://stevenapis.xyz', "color:yellow;background-color:blue;");
-    // startTimer();
-    // clock();
-    loadBG();
-    killDevTool();
-  }
-</script>
 
 <body>
   <section class="cover">
@@ -483,9 +463,23 @@
 
     </div>
   </section>
-
-  <script src="redirectClock.js"></script>
-  <script type="text/javascript">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="clock.js"></script>
+  <script src="click.js"></script>
+  <script>
+    function loadBG(src) {
+      document.getElementById('bg-img').src = "https://" + src + "/api/bing";
+      console.log("BG img set.");
+    }
+    window.onload = function () {
+      var pageDomain = document.domain;
+      var pageUrl = window.location.href;
+      console.log("onLoad");
+      console.log("%c" + "地址: " + pageUrl, "color:black;background-color:yellow;font-size:2rem;");
+      // startTimer();
+      // clock();
+      loadBG(pageDomain);
+    }
     nowTime();
     function search1() {
       if (document.getElementById("search_input_bd").value != "") {
@@ -502,8 +496,6 @@
       }
       return false;
     }
-  </script>
-  <script type="text/javascript">
     var OriginTitile = document.title;
     var titleTime;
     document.addEventListener('visibilitychange', function () {
@@ -520,8 +512,6 @@
       }
     });
   </script>
-  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="click.js"></script>
 </body>
 
 </html>
