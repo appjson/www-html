@@ -30,6 +30,7 @@
     text-align: center;
     background-color: #ffffff;
     cursor: url("https://ryzenx.oss-accelerate.aliyuncs.com/cur/Diamond_Sword.cur"), auto;
+    font-family: 'menlo', 'Monaco', 'Cascadia Mono', 'JetBrains Mono', 'Fira Code', 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
   }
 
   input {
@@ -77,6 +78,10 @@
   }
 
   .search_part {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-shadow: 0 2px 0px red, 0 4px 0 blue, 0 6px 0 yellow, 0 8px 0 green, 0 10px 0 white;
     margin-bottom: 30px;
     margin-top: 20px;
   }
@@ -138,7 +143,7 @@
     animation: fadeInDown 1s;
     position: relative;
     display: inline-block;
-    width: 75px;
+    width: 80px;
     border: 0;
     margin-left: auto;
     margin-right: auto;
@@ -158,12 +163,11 @@
     text-shadow: 1px 1px 5px #111;
     height: 1.5em;
     line-height: 1.5em;
-    width: 75px;
+    width: 100%;
     font-size: 0.8em;
     white-space: nowrap;
-    overflow: hidden;
+    overflow: auto;
     margin: auto;
-
     text-overflow: ellipsis;
     -o-text-overflow: ellipsis;
     -ms-text-overflow: ellipsis;
@@ -176,7 +180,11 @@
   .icon {
     width: 3em;
     height: 3em;
+    border-radius: 15%;
+    box-shadow: 1px 1px 4px #aaa;
+    background-color: #fff;
     max-width: 75px;
+    padding: 2px;
   }
 
   .GMSICU {
@@ -469,13 +477,13 @@
   <script>
     function loadBG(src) {
       document.getElementById('bg-img').src = "https://" + src + "/api/bing";
-      console.log("BG img set.");
+      document.getElementById('bg-img').alt = "Background Image";
     }
     window.onload = function () {
       var pageDomain = document.domain;
       var pageUrl = window.location.href;
-      console.log("onLoad");
-      console.log("%c" + "地址: " + pageUrl, "color:black;background-color:yellow;font-size:2rem;");
+      console.log("onLoad.");
+      console.log("%c" + "地址: " + pageUrl, "color:blue;background-color:white;font-size:1.2rem;text-decoration:none;");
       // startTimer();
       // clock();
       loadBG(pageDomain);
