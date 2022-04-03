@@ -2,3 +2,7 @@
 *@deprecated
 .DS_Store
 /api/bing/**/
+*.zip
+*.tar.gz
+*.tgz
+*.7z
