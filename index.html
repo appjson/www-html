@@ -389,14 +389,16 @@
         <div class="search_part">
           <h1>Steven的启动页</h1>
         </div>
-        <form onsubmit="search1()" class="search_bar">
-          <input type="submit" id="search_submit_bd" value="Baidu">
-          <span><input class="search" type="text" value="" autocomplete="off" id="search_input_bd"></span>
-        </form>
-        <form onsubmit="search2()" class="search_bar">
-          <input type="submit" id="search_submit_go" value="Google">
-          <span><input class="search" type="text" value="" autocomplete="off" id="search_input_go"></span>
-        </form>
+        <div class="search_bar">
+          <input type="submit" id="search_submit_bd" value="Baidu" onclick="search1()">
+          <span><input class="search" type="text" value="" autocomplete="off" id="search_input_bd"
+              onkeyup="if(event.keyCode==13){search1()}"></span>
+        </div>
+        <div class="search_bar">
+          <input type="submit" id="search_submit_go" value="Google" onclick="search2()">
+          <span><input class="search" type="text" value="" autocomplete="off" id="search_input_go"
+              onkeyup="if(event.keyCode==13){search2()}"></span>
+        </div>
       </div>
       <div class="GMSICU">
         <div class="redirectTime">
@@ -489,20 +491,21 @@
       loadBG(pageDomain);
     }
     nowTime();
+
     function search1() {
-      if (document.getElementById("search_input_bd").value != "") {
-        window.location.href = "https://www.baidu.com/s?word=" + document.getElementById("search_input_bd").value;
+      var value = document.getElementById("search_input_bd").value;
+      if (value.length > 0) {
+        window.location.href = "https://www.baidu.com/s?word=" + value;
         document.getElementById("search_input_bd").value = "";
       }
-      return false;
     }
 
     function search2() {
-      if (document.getElementById("search_input_go").value != "") {
-        window.location.href = "https://www.google.com/search?q=" + document.getElementById("search_input_go").value;
+      var value = document.getElementById("search_input_go").value;
+      if (value.length > 0) {
+        window.location.href = "https://www.google.com/search?q=" + value;
         document.getElementById("search_input_go").value = "";
       }
-      return false;
     }
     var OriginTitile = document.title;
     var titleTime;
