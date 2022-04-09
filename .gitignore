@@ -6,3 +6,4 @@
 *.tar.gz
 *.tgz
 *.7z
+.user.ini
