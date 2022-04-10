@@ -1,19 +1,20 @@
 <?php
 ini_set('display_errors', true);
-ini_set("include_path", '/home/stevenos/php:' . ini_get("include_path") );
+ini_set("include_path", '/home/stevenos/php:' . ini_get("include_path"));
 error_reporting(E_ALL);
 date_default_timezone_set('Asia/Shanghai');
 global $user_online;
 
-function load_data() {
+function load_data()
+{
     global $user_online;
     $data = file_get_contents($user_online);
     $data = json_decode($data, true);
     $json = array();
     if (sizeof($data) > 0) {
         foreach ((array) $data as $single_data) {
-            if (date('mdHis') - date('mdHis',strtotime(date('Y-').$single_data["time"])) < 60) {
-                if (strpos(json_encode($json),$single_data['ip'])) {
+            if (date('mdHis') - date('mdHis', strtotime(date('Y-') . $single_data["time"])) < 60) {
+                if (strpos(json_encode($json), $single_data['ip'])) {
                     continue;
                 }
                 $json[] = array(
@@ -28,10 +29,11 @@ function load_data() {
     return $data;
 }
 
-function save_data($data) {
+function save_data($data)
+{
     global $user_online;
     $old_data = load_data();
-    if (!strpos(json_encode($old_data),$data['ip'])) {
+    if (!strpos(json_encode($old_data), $data['ip'])) {
         array_push($old_data, $data);
         $old_data = array_unique($old_data, SORT_REGULAR);
     }
@@ -39,14 +41,14 @@ function save_data($data) {
 }
 
 
-preg_match('/(\d+)\-.*/',$_GET['g'],$matches);
+preg_match('/(\d+)\-.*/', $_GET['g'], $matches);
 $user_online = $matches[1];
-$user_online = $user_online.".txt";
+$user_online = $user_online . ".txt";
 if ($user_online == '.txt') {
     exit();
 }
 
-$action = isset($_GET['action'])?$_GET['action']:'s';
+$action = isset($_GET['action']) ? $_GET['action'] : 's';
 if ($action == "s") {
     $json = array(
         "ip" => getenv('REMOTE_ADDR'),
@@ -56,7 +58,7 @@ if ($action == "s") {
     if (file_exists($user_online)) {
         save_data($json);
     } else {
-        file_put_contents($user_online,'[]');
+        file_put_contents($user_online, '[]');
         save_data($json);
     }
     header('Content-Type: image/png');
@@ -71,5 +73,3 @@ if ($action == "s") {
 } else {
     exit("error!");
 }
-
-?>
