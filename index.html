@@ -479,17 +479,17 @@
   <script src="click.js"></script>
   <script>
     function loadBG(src) {
-      document.getElementById('bg-img').src = "https://" + src + "/api/bing";
+      document.getElementById('bg-img').src = src + "/api/bing";
       document.getElementById('bg-img').alt = "Background Image";
     }
     window.onload = function () {
-      var pageDomain = document.domain;
-      var pageUrl = window.location.href;
+      var pageUrl = new URL(window.location.href);
+      var host = pageUrl.origin;
       console.log("onLoad.");
       console.log("%c" + "地址: " + pageUrl, "color:blue;background-color:white;font-size:1.2rem;text-decoration:none;");
       // startTimer();
       // clock();
-      loadBG(pageDomain);
+      loadBG(host);
     }
     nowTime();
 
