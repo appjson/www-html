@@ -16,7 +16,7 @@ if (!is_file($pathurl)) {
         $imgurl='http://cn.bing.com'.$matches[1].'_1920x1080.jpg';
         copy($imgurl, $pathurl);
     } else {
-        copy('https://dl.ryzenx.com/files/win10pic1.jpg', $pathurl);
+        copy('./windows-10-abstract-4k.jpg', $pathurl);
     }
 }
 if ($pathurl) {
@@ -54,4 +54,3 @@ function deleteDir($path_e) {
         @rmdir($path_e);
     }
 }
-?>
