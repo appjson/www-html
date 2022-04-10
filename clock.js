@@ -7,7 +7,11 @@ function startTimer() {
 }
 
 function nowTime() {
-  var formatTime = (inputTime) => {
+  var formatNumber = function (n) {
+    n = n.toString();
+    return n[1] ? n : "0" + n;
+  };
+  var formatTime = function (inputTime) {
     var date = new Date(Number.parseInt(inputTime));
     var year = date.getFullYear();
     var month = date.getMonth() + 1;
@@ -22,8 +26,8 @@ function nowTime() {
     );
   };
   // var nowdate = new Date().Format("yyyyMM");
-  var nowtime = formatTime(new Date());
-  document.getElementById("nowTime").innerHTML = "" + nowtime;
+  var now = formatTime(new Date().getTime());
+  document.getElementById("nowTime").innerHTML = "" + now;
   setTimeout(nowTime, 800);
 }
 
