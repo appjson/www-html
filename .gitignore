@@ -7,3 +7,4 @@
 *.tgz
 *.7z
 .user.ini
+ssl/
