@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="zh-CN">
 
 <head>
   <title>Steven的启动页</title>
@@ -372,6 +373,22 @@
     opacity: 0;
     z-index: -10;
   }
+
+  .footer {
+    position: fixed;
+    bottom: 8px;
+    left: 50%;
+    width: 120px;
+    transform: translate(-60px, 0);
+    font-weight: 300;
+    font-size: 8px;
+    color: white;
+  }
+
+  .footer :link {
+    color: inherit;
+    text-decoration: none;
+  }
 </style>
 
 <body>
@@ -471,13 +488,16 @@
         <p><img class="icon" src="https://ryzenx.com/img/icon.png"></p>
         <p class="url">RyzenX 博客</p>
       </div>
-
+    </div>
+    <div class="footer">
     </div>
   </section>
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="clock.js"></script>
+  <script src="index.js"></script>
   <script src="click.js"></script>
   <script>
+    nowTime();
+    loadICP();
     function loadBG(src) {
       document.getElementById('bg-img').src = src + "/api/bing";
       document.getElementById('bg-img').alt = "Background Image";
@@ -491,7 +511,6 @@
       // clock();
       loadBG(host);
     }
-    nowTime();
 
     function search1() {
       var value = document.getElementById("search_input_bd").value;
@@ -508,21 +527,7 @@
         document.getElementById("search_input_go").value = "";
       }
     }
-    var OriginTitile = document.title;
-    var titleTime;
-    document.addEventListener('visibilitychange', function () {
-      if (document.hidden) {
-        $('[rel="shortcut icon"]').attr('href', "./hahaha.ico");
-        document.title = '(╯°Д°)╯喔唷~崩溃啦___' + OriginTitile;
-        clearTimeout(titleTime);
-      } else {
-        $('[rel="shortcut icon"]').attr('href', "./favicon.ico");
-        document.title = '(｀・ω・´)又好了______' + OriginTitile;
-        titleTime = setTimeout(function () {
-          document.title = OriginTitile;
-        }, 2000);
-      }
-    });
+
   </script>
 </body>
 

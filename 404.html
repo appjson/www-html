@@ -33,23 +33,27 @@
 </head>
 
 <body>
-    <h1>404，您请求的文件不存在！</h1>
-    <div id="text"></div>
-</body>
-<script type="text/javascript">
-    window.onload = function () {
-        redirect();
-    }
-    var i = 0;
-
-    function redirect() {
-        document.getElementById("text").innerHTML = (5 - i + " 秒后跳转回<a href=\"https://stevenapis.xyz\">主页</a>");
-        i++;
-        if (i > 5) {
-            window.location.href = "https://stevenapis.xyz/";
+    <center>
+        <h1>404，您请求的页面不存在！</h1>
+    </center>
+    <div id="text">
+        请检查链接
+    </div>
+    <script type="text/javascript">
+        window.onload = function () {
+            redirect();
         }
-        setTimeout(redirect, 1000);
-    }
-</script>
+        var i = 0;
+
+        function redirect() {
+            document.getElementById("text").innerHTML = (5 - i + " 秒后跳转回<a href=\"https://stevenapis.xyz\">主页</a>");
+            i++;
+            if (i > 5) {
+                window.location.href = "https://stevenapis.xyz/";
+            }
+            setTimeout(redirect, 1000);
+        }
+    </script>
+</body>
 
 </html>

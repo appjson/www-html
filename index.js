@@ -1,12 +1,29 @@
 var stopTime;
+var OriginTitile = document.title;
+var titleTime;
+document.addEventListener("visibilitychange", function () {
+  if (document.hidden) {
+    $('[rel="shortcut icon"]').attr("href", "./hahaha.ico");
+    document.title = "喔唷~崩溃啦";
+    clearTimeout(titleTime);
+  } else {
+    $('[rel="shortcut icon"]').attr("href", "./favicon.ico");
+    document.title = "欢迎回来 ~ ~ " + OriginTitile;
+    titleTime = setTimeout(function () {
+      document.title = OriginTitile;
+    }, 2000);
+  }
+});
 
-function startTimer() {
+var loadICP = function () {};
+
+var startTimer = function () {
   var today = new Date();
   stopTime = today.getTime() + 120 * 1000;
-  console.log("Timer start.");
-}
+  console.log("Timer started.");
+};
 
-function nowTime() {
+var nowTime = function () {
   var formatNumber = function (n) {
     n = n.toString();
     return n[1] ? n : "0" + n;
@@ -29,9 +46,9 @@ function nowTime() {
   var now = formatTime(new Date().getTime());
   document.getElementById("nowTime").innerHTML = "" + now;
   setTimeout(nowTime, 800);
-}
+};
 
-function toClipboard() {
+var toClipboard = function () {
   var timeTag = document.getElementById("nowTime");
   var text = timeTag.innerText;
   var input = document.getElementById("textarea");
@@ -45,4 +62,4 @@ function toClipboard() {
   } else {
     timeTag.innerHTML = "复制失败！";
   }
-}
+};
