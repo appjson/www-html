@@ -1,9 +1,11 @@
 <html>
   <head>
-    <title>Calculate Hash - By StevenOS</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous">
-    <script src="https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.js"></script>
+    <title>Calculate Hash</title>
+    <link
+      rel="stylesheet"
+      href="../static/bootstrap.min.css"
+    />
+    <script src="../static/crypto-js.min.js"></script>
     <script src="index.js"></script>
   </head>
   <style type="text/css">
@@ -48,41 +50,89 @@
   <body onload="onLoad()">
     <div class="container">
       <div class="line">
-        <div class="label">区块: </div>
+        <div class="label">区块:</div>
         <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">#</span>
+            <span
+              class="input-group-text"
+              id="basic-addon1"
+              >#</span
+            >
           </div>
-          <input id="block" type="number" class="form-control" placeholder="block number" aria-label="block" value="1"
-            onchange="calc()">
+          <input
+            id="block"
+            type="number"
+            class="form-control"
+            placeholder="block number"
+            aria-label="block"
+            value="1"
+            onchange="calc()"
+          />
         </div>
       </div>
       <div class="line">
-        <div class="label">随机数: </div>
+        <div class="label">随机数:</div>
         <div class="input-group">
-          <input id="random" type="number" class="form-control" placeholder="random number" aria-label="random" value="0"
-            onchange="calc()">
+          <input
+            id="random"
+            type="number"
+            class="form-control"
+            placeholder="random number"
+            aria-label="random"
+            value="0"
+            onchange="calc()"
+          />
         </div>
       </div>
-      <div class="line" style="align-items: flex-start;">
-        <div class="label">数据: </div>
-        <textarea id="data" class="form-control" aria-label="With textarea" style="min-height: 150px;" onchange="calc()"></textarea>
+      <div
+        class="line"
+        style="align-items: flex-start"
+      >
+        <div class="label">数据:</div>
+        <textarea
+          id="data"
+          class="form-control"
+          aria-label="With textarea"
+          style="min-height: 150px"
+          onchange="calc()"
+        ></textarea>
       </div>
       <div class="line">
-        <div class="label">SHA256: </div>
+        <div class="label">SHA256:</div>
         <div class="input-group">
-          <textarea id="hash" type="text" class="form-control" placeholder="hash number" aria-label="hash" disabled="true"
-            style="word-break:break-all;word-wrap:break-all;resize:unset;"></textarea>
+          <textarea
+            id="hash"
+            type="text"
+            class="form-control"
+            placeholder="hash number"
+            aria-label="hash"
+            disabled="true"
+            style="word-break: break-all; word-wrap: break-all; resize: unset"
+          ></textarea>
         </div>
       </div>
       <div class="line">
         <div class="label">前几位为0？</div>
         <div class="input-group">
-          <input id="int" type="number" class="form-control" placeholder="int" aria-label="int" value="3">
+          <input
+            id="int"
+            type="number"
+            class="form-control"
+            placeholder="int"
+            aria-label="int"
+            value="3"
+          />
         </div>
       </div>
       <div class="btn-area">
-        <button id="btn" onclick="start()" type="button" class="btn btn-success">Start!</button>
+        <button
+          id="btn"
+          onclick="start()"
+          type="button"
+          class="btn btn-success"
+        >
+          Start!
+        </button>
       </div>
     </div>
   </body>

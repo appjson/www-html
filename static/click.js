@@ -29,24 +29,24 @@
 //   });
 // });
 
-$("html,body").click(function (e) {
-  var gcd = new Array("♥", "♥", "♥");
+$('html,body').click(function (e) {
+  var gcd = new Array('♥', '♥', '♥');
   var n = Math.floor(Math.random() * gcd.length);
-  var $i = $("<b/>").text(gcd[n]);
+  var $i = $('<b/>').text(gcd[n]);
   var x = e.pageX,
     y = e.pageY;
   $i.css({
-    "z-index": 99999,
+    'z-index': 99999,
     top: y - 20,
     left: x - 8,
-    position: "absolute",
-    color: "#FF706C",
-    animation: "heartbeat .25s infinite .15s",
+    position: 'absolute',
+    color: '#FF706C',
+    animation: 'heartbeat .25s infinite .15s'
   });
-  $("body").append($i);
+  $('body').append($i);
   $i.animate(
     {
-      opacity: 0,
+      opacity: 0
     },
     1500,
     function () {

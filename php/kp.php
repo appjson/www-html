@@ -1,6 +1,6 @@
 <?php
 ini_set('display_errors', true);
-ini_set("include_path", '/home/stevenos/php:' . ini_get("include_path"));
+
 error_reporting(E_ALL);
 date_default_timezone_set('Asia/Shanghai');
 global $user_online;
@@ -63,7 +63,7 @@ if ($action == "s") {
     }
     header('Content-Type: image/png');
     @ob_end_clean();
-    @readfile('pyqbot.png');
+    @readfile('../assets/pyqbot.png');
     @flush();
     @ob_flush();
     exit();
